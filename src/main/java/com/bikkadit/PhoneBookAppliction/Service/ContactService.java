@@ -1,5 +1,8 @@
 package com.bikkadit.PhoneBookAppliction.Service;
 
-public class ContactService {
+import com.bikkadit.PhoneBookAppliction.Entity.Contact;
 
+public interface ContactService {
+
+	boolean saveContact(Contact contact);
 }
