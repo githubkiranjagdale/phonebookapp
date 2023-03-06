@@ -32,6 +32,25 @@ public class ContactServiceImpl implements ContactService {
 		Contact contact = contactRepo.findById(Id).get();
 		return contact;
 	}
+	@Override
+	public boolean updateContact(Contact contact) {
+		Contact save = contactRepo.save(contact);
+		if(save==null) {
+			return false;
+		}else {
+		return true;
+		}
+	}
+	@Override
+	public boolean deleteById(Integer Id) {
+		Contact contact = contactRepo.findById(Id).get();
+		if(contact!=null) {
+			contactRepo.existsById(Id);
+			return true;
+		}else {
+		return false;
+		}
+	}
 	
 
 }
