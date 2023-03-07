@@ -46,10 +46,10 @@ public class ContactController {
 		return new ResponseEntity<Contact>(findById, HttpStatus.OK);
 	}
 	
-	@PutMapping(value="/updateContact/{Id}", consumes = "application/json")
-	public ResponseEntity<String> updateContact(@RequestBody Contact contact, @PathVariable Integer Id){
+	@PutMapping(value="/updateContact", consumes = "application/json")
+	public ResponseEntity<String> updateContact(@RequestBody Contact contact){
 		boolean updateContact = contactService.updateContact(contact);
-		if(updateContact==true) {
+		if(updateContact) {
 			String msg="contact updated successfully";
 			return new ResponseEntity<String>(msg, HttpStatus.OK);
 		}else {

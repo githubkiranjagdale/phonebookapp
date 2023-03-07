@@ -42,10 +42,10 @@ public class ContactServiceImpl implements ContactService {
 	@Override
 	public boolean updateContact(Contact contact) {
 		Contact save = contactRepo.save(contact);
-		if(save==null) {
-			return false;
+		if(save!=null) {
+			return true;
 		}else {
-		return true;
+		return false;
 		}
 	}
 	@Override
